@@ -12,4 +12,4 @@ build:
 	rm -rf src
 
 run:
-	docker run -d -P $(IMAGE_NAME)
+	docker run -d --name $(IMAGE_NAME) $(IMAGE_NAME)

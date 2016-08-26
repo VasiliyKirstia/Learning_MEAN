@@ -6,4 +6,4 @@ build:
 	docker build -f Dockerfile -t $(IMAGE_NAME) --no-cache .
 
 run:
-	docker run $(IMAGE_NAME)
+	docker run --name $(IMAGE_NAME) $(IMAGE_NAME)
