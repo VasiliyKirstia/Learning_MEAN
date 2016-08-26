@@ -3,7 +3,7 @@
 IMAGE_NAME = nginx
 
 build:
-	docker build -f Dockerfile -t $(IMAGE_NAME)
+	docker build -f Dockerfile -t $(IMAGE_NAME) --no-cache .
 
 run:
-	docker run $(IMAGE_NAME)
+	docker run -P -d --name $(IMAGE_NAME) $(IMAGE_NAME)

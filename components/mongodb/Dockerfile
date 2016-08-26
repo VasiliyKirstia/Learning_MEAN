@@ -2,7 +2,7 @@
 # Based on ubuntu:16.04, installs MongoDB following the instructions from:
 # http://docs.mongodb.org/manual/tutorial/install-mongodb-on-ubuntu/
 
-FROM       ubuntu:16.04
+FROM       ubuntu:trusty
 MAINTAINER Docker
 
 # Installation:

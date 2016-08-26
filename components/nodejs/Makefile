@@ -1,9 +1,15 @@
-.PHONY: build, run
+.PHONY: build, run, deploy
 
 IMAGE_NAME = nodejs
 
+deploy:
+	echo "deploied"
+
 build:
-	docker build -f Dockerfile -t $(IMAGE_NAME)
+	mkdir src
+	cp -r ../../backend/* src/
+	docker build -f Dockerfile -t $(IMAGE_NAME) --no-cache .
+	rm -rf src
 
 run:
-	docker run $(IMAGE_NAME)
+	docker run -d -P $(IMAGE_NAME)
