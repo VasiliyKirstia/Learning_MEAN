@@ -1,6 +1,7 @@
-.PHONY: build, run, deploy
+.PHONY: build, run, deploy, clear, stop
 
 IMAGE_NAME = nodejs
+NETWORK_NAME = my-bridge-network
 
 deploy:
 	echo "deploied"
@@ -12,4 +13,14 @@ build:
 	rm -rf src
 
 run:
-	docker run -d --name $(IMAGE_NAME) $(IMAGE_NAME)
+	docker run -d \
+		--name $(IMAGE_NAME) \
+		--network $(NETWORK_NAME) \
+		$(IMAGE_NAME)
+
+stop:
+	docker stop $(IMAGE_NAME)
+
+clear: stop
+	docker rm $(IMAGE_NAME)
+	docker rmi $(IMAGE_NAME)
