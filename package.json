@@ -1,0 +1,22 @@
+{
+  "name": "learning_mean",
+  "version": "0.0.1",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VasiliyKirstia/Learning_MEAN.git"
+  },
+  "author": "Vasiliy Kirstia",
+  "license": "",
+  "bugs": {
+    "url": "https://github.com/VasiliyKirstia/Learning_MEAN/issues"
+  },
+  "homepage": "https://github.com/VasiliyKirstia/Learning_MEAN#readme",
+  "dependencies": {
+    "grunt": "^1.0.1"
+  }
+}

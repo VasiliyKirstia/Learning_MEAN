@@ -1,2 +1,2 @@
-backend/node_modules/*
-static/*
+dist/*
+node_modules/*

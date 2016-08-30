@@ -9,7 +9,7 @@ build:
 run:
 	docker run -d \
 		--name $(IMAGE_NAME) \
-		--volume $(CURDIR)/../../backend:/srv/node/app \
+		--volume $(CURDIR)/../../dist/backend:/srv/node/app \
 		--network $(NETWORK_NAME) \
 		$(IMAGE_NAME) \
 		/bin/bash /srv/node/app/comands/start.sh
