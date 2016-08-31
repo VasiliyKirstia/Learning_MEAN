@@ -1,7 +1,7 @@
 module.exports = function(grunt) {
 
     grunt.initConfig({
-        jade:{
+        jade: {
             compile:{
                 src: 'src/frontend/**/*.jade',
                 dest: 'dist/frontend/'
@@ -11,5 +11,5 @@ module.exports = function(grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-jade');
 
-    grunt.registerTask('jade', 'jade')
+    grunt.registerTask('default', ['jade']);
 };
