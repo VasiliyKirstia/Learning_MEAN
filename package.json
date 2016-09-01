@@ -5,6 +5,7 @@
   "author": "Vasiliy Kirstia",
   "dependencies": {
     "grunt": "^1.0.1",
+    "grunt-contrib-htmlmin": "^2.0.0",
     "grunt-contrib-jade": "^1.0.0"
   }
 }
