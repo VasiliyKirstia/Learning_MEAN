@@ -31,12 +31,22 @@ module.exports = function(grunt) {
                 src: "**/*.html",
                 dest: "dist/frontend"
             }
+        },
+        copy: {
+            backend: {
+                expand: true,
+                cwd: "src/backend",
+                src: "*",
+                dest: "dist/backend"
+            }
         }
     });
 
     grunt.loadNpmTasks('grunt-contrib-jade');
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
+    grunt.loadNpmTasks('grunt-contrib-copy');
 
+    grunt.registerTask('build-backend', "Copy backend source code.", ['copy:backend']);
     grunt.registerTask('build-frontend', "Prepare frontend source code.", ['jade:compile', 'htmlmin:frontend']);
-    grunt.registerTask('default','Build frontend and backend.', ['build-frontend']);
+    grunt.registerTask('default','Build frontend and backend.', ['build-frontend', 'build-backend']);
 };

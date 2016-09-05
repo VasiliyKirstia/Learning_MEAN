@@ -1,0 +1,16 @@
+{
+  "name": "docker_web_app",
+  "description": "Node.js on Docker",
+  "main": "",
+  "authors": [
+    "Vasiliy Kirstia"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/VasiliyKirstia/Learning_MEAN",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "dist"
+  ]
+}
