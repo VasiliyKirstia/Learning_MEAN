@@ -38,6 +38,12 @@ module.exports = function(grunt) {
                 cwd: "src/backend",
                 src: "*",
                 dest: "dist/backend"
+            },
+            frontend: {
+                expand: true,
+                cwd: "./",
+                src: "bower_components/**/*",
+                dest: "dist/frontend"
             }
         }
     });
@@ -47,6 +53,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
 
     grunt.registerTask('build-backend', "Copy backend source code.", ['copy:backend']);
-    grunt.registerTask('build-frontend', "Prepare frontend source code.", ['jade:compile', 'htmlmin:frontend']);
+    grunt.registerTask('build-frontend', "Prepare frontend source code.", ['jade:compile', 'htmlmin:frontend', 'copy:frontend']);
     grunt.registerTask('default','Build frontend and backend.', ['build-frontend', 'build-backend']);
 };

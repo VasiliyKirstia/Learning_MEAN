@@ -11,6 +11,7 @@ run:
 		--name $(IMAGE_NAME) \
 		--network $(NETWORK_NAME) \
 		--volume $(CURDIR)/configs/sites-enabled:/etc/nginx/sites-enabled \
+		--volume $(CURDIR)/../../dist/frontend:/srv/nginx/app \
 		$(IMAGE_NAME)
 
 stop:
