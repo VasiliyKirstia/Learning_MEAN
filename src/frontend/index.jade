@@ -1,0 +1,12 @@
+doctype html
+html(ng-app="phonecatApp")
+    head
+        meta(charset="utf-8")
+        script(src="/static/bower_components/angular/angular.min.js")
+            
+        script(src="/static/app.module.min.js")
+        script(src="/static/phone-list/phone-list.module.min.js")
+        script(src="/static/phone-list/phone-list.component.min.js")
+    body
+        <!-- Use a custom component to render a list of phones -->
+        phone-list

@@ -6,10 +6,11 @@ module.exports = function(grunt) {
                     client: false,
                     pretty: true
                 },
-                cwd: "src/frontend/html/",
+                cwd: "src/frontend/",
                 src: "**/*.jade",
-                dest: "dist/frontend/html",
+                dest: "dist/frontend",
                 expand: true,
+                extDot: 'last',
                 ext: ".html"
             }
         },
@@ -26,18 +27,19 @@ module.exports = function(grunt) {
                     minifyURLs: true
                 },
                 expand: true,
-                cwd: "dist/frontend/html/",
+                cwd: "dist/frontend/",
                 src: "**/*.html",
-                dest: "dist/frontend/html"
+                dest: "dist/frontend"
             }
         },
 
         uglify: {
             frontend: {
                 expand: true,
-                cwd: "src/frontend/js/",
+                cwd: "src/frontend/",
                 src: ["**/*.js", "!**/*.spec.js"],
-                dest: "dist/frontend/js",
+                dest: "dist/frontend",
+                extDot: 'last',
                 ext: ".min.js"
             },
             backend: {}
@@ -46,7 +48,7 @@ module.exports = function(grunt) {
         copy: {
             backend: {
                 expand: true,
-                cwd: "src/backend",
+                cwd: "src/backend/",
                 src: "*",
                 dest: "dist/backend"
             },
@@ -54,6 +56,12 @@ module.exports = function(grunt) {
                 expand: true,
                 cwd: "./",
                 src: "bower_components/**/*",
+                dest: "dist/frontend"
+            },
+            styles: {
+                expand: true,
+                cwd: "src/frontend/",
+                src: "**/*.css",
                 dest: "dist/frontend"
             }
         },
@@ -76,7 +84,7 @@ module.exports = function(grunt) {
     grunt.registerTask('clean-all', "Clean frontend and backend directories.", ['clean:frontend']);
 
     grunt.registerTask('copy-backend', "Copy backend directories.", ['copy:backend']);
-    grunt.registerTask('copy-frontend', "Copy frontend directories.", ['copy:bower_components']);
+    grunt.registerTask('copy-frontend', "Copy frontend directories.", ['copy:bower_components', 'copy:styles']);
 
     grunt.registerTask('prepare-frontend', "Compile and minify frontend.", ['jade:compile', 'htmlmin:html', 'uglify:frontend']);
 
