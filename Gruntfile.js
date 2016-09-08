@@ -36,7 +36,7 @@ module.exports = function(grunt) {
             frontend: {
                 expand: true,
                 cwd: "src/frontend/js/",
-                src: "**/*.js",
+                src: ["**/*.js", "!**/*.spec.js"],
                 dest: "dist/frontend/js",
                 ext: ".min.js"
             },
@@ -62,7 +62,7 @@ module.exports = function(grunt) {
             frontend: {
                 expand: true,
                 cwd: "dist/frontend",
-                src: "*"
+                src: "**/*.*"
             }
         }
     });
@@ -81,7 +81,7 @@ module.exports = function(grunt) {
     grunt.registerTask('prepare-frontend', "Compile and minify frontend.", ['jade:compile', 'htmlmin:html', 'uglify:frontend']);
 
     grunt.registerTask('build-backend', "Prepare backend source code.", ['copy-backend']);
-    grunt.registerTask('build-frontend', "Prepare frontend source code.", ['copy-frontend', 'prepare-frontend']);
+    grunt.registerTask('build-frontend', "Prepare frontend source code.", ['clean:frontend', 'copy-frontend', 'prepare-frontend']);
 
     grunt.registerTask('default','Build frontend and backend.', ['clean-all', 'build-frontend', 'build-backend']);
 };

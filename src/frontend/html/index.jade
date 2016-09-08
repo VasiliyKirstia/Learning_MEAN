@@ -4,9 +4,8 @@ html(ng-app="phonecatApp")
         meta(charset="utf-8")
         script(src="/static/bower_components/angular/angular.js")
         script(src="/static/js/app.min.js")
+        script(src="/static/js/components/phone-list.min.js")
 
-    body(ng-controller="PhoneListController")
-        ul
-            li(ng-repeat="phone in phones")
-                span {{phone.name}}
-                p {{phone.snippet}}
+    body
+        <!-- Use a custom component to render a list of phones -->
+        phone-list
