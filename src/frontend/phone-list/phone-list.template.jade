@@ -1,10 +1,17 @@
 .container-fluid
     .row
         .col-md-2
-            |Search: 
-            input(ng-model="$ctrl.query")
+            p
+                |Search:
+                input(ng-model="$ctrl.query")
+
+            p
+                |Sort by:
+                select(ng-model="$ctrl.orderProp")
+                    option(value="name") Alphabetical
+                    option(value="age") Newest
         .col-md-10
             ul.phones
-                li(ng-repeat="phone in $ctrl.phones | filter:$ctrl.query")
+                li(ng-repeat="phone in $ctrl.phones | filter:$ctrl.query | orderBy:$ctrl.orderProp")
                     span {{phone.name}}
                     p {{phone.snippet}}
