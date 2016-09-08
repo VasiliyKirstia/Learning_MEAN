@@ -2,7 +2,8 @@ angular
     .module('phoneList')
     .component('phoneList', {
         templateUrl: 'phone-list/phone-list.template.html',
-        controller: function() {
+        controller: ["$http", function phoneListController($http) {
+            this.orderProp = 'age';
             this.phones = [
                 {
                     name: 'Nexus S',
@@ -19,5 +20,6 @@ angular
                 }
             ];
             this.orderProp = 'age';
-        }
+        }],
+        controllerAs: "$ctrl"
     });
