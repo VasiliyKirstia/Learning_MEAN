@@ -1,4 +1,10 @@
-ul
-    li(ng-repeat="phone in $ctrl.phones")
-        span {{phone.name}}
-        p {{phone.snippet}}
+.container-fluid
+    .row
+        .col-md-2
+            |Search: 
+            input(ng-model="$ctrl.query")
+        .col-md-10
+            ul.phones
+                li(ng-repeat="phone in $ctrl.phones | filter:$ctrl.query")
+                    span {{phone.name}}
+                    p {{phone.snippet}}
