@@ -13,8 +13,9 @@ module.exports = function(grunt) {
                 ext: ".html"
             }
         },
+
         htmlmin: {
-            frontend: {
+            html: {
                 options: {
                     caseSensitive: true,
                     collapseWhitespace: true,
@@ -30,6 +31,18 @@ module.exports = function(grunt) {
                 dest: "dist/frontend/html"
             }
         },
+
+        uglify: {
+            frontend: {
+                expand: true,
+                cwd: "src/frontend/js/",
+                src: "**/*.js",
+                dest: "dist/frontend/js",
+                ext: ".min.js"
+            },
+            backend: {}
+        },
+
         copy: {
             backend: {
                 expand: true,
@@ -37,13 +50,14 @@ module.exports = function(grunt) {
                 src: "*",
                 dest: "dist/backend"
             },
-            frontend: {
+            bower_components: {
                 expand: true,
                 cwd: "./",
                 src: "bower_components/**/*",
                 dest: "dist/frontend"
             }
         },
+
         clean: {
             frontend: {
                 expand: true,
@@ -57,9 +71,17 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
 
     grunt.registerTask('clean-all', "Clean frontend and backend directories.", ['clean:frontend']);
-    grunt.registerTask('build-backend', "Copy backend source code.", ['copy:backend']);
-    grunt.registerTask('build-frontend', "Prepare frontend source code.", ['jade:compile', 'htmlmin:frontend', 'copy:frontend']);
+
+    grunt.registerTask('copy-backend', "Copy backend directories.", ['copy:backend']);
+    grunt.registerTask('copy-frontend', "Copy frontend directories.", ['copy:bower_components']);
+
+    grunt.registerTask('prepare-frontend', "Compile and minify frontend.", ['jade:compile', 'htmlmin:html', 'uglify:frontend']);
+
+    grunt.registerTask('build-backend', "Prepare backend source code.", ['copy-backend']);
+    grunt.registerTask('build-frontend', "Prepare frontend source code.", ['copy-frontend', 'prepare-frontend']);
+
     grunt.registerTask('default','Build frontend and backend.', ['clean-all', 'build-frontend', 'build-backend']);
 };
