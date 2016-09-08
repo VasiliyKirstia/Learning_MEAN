@@ -6,13 +6,11 @@ module.exports = function(grunt) {
                     client: false,
                     pretty: true
                 },
-                files: [ {
-                  cwd: "src/frontend",
-                  src: "**/*.jade",
-                  dest: "dist/frontend",
-                  expand: true,
-                  ext: ".html"
-                } ]
+                cwd: "src/frontend/html/",
+                src: "**/*.jade",
+                dest: "dist/frontend/html",
+                expand: true,
+                ext: ".html"
             }
         },
         htmlmin: {
@@ -27,9 +25,9 @@ module.exports = function(grunt) {
                     minifyURLs: true
                 },
                 expand: true,
-                cwd: "dist/frontend",
+                cwd: "dist/frontend/html/",
                 src: "**/*.html",
-                dest: "dist/frontend"
+                dest: "dist/frontend/html"
             }
         },
         copy: {
@@ -50,7 +48,7 @@ module.exports = function(grunt) {
             frontend: {
                 expand: true,
                 cwd: "dist/frontend",
-                src: "**/*"
+                src: "*"
             }
         }
     });
