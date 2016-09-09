@@ -6,10 +6,15 @@ html(ng-app="phonecatApp")
         link(rel="stylesheet" href="app.css")
             
         script(src="/static/bower_components/angular/angular.min.js")
+        script(src="/static/bower_components/angular-route/angular-route.min.js")
             
         script(src="/static/app.module.min.js")
+        script(src="/static/app.config.min.js")
+        
         script(src="/static/phone-list/phone-list.module.min.js")
         script(src="/static/phone-list/phone-list.component.min.js")
+            
+        script(src="/static/phone-detail/phone-detail.module.min.js")
+        script(src="/static/phone-detail/phone-detail.component.min.js")
     body
-        <!-- Use a custom component to render a list of phones -->
-        phone-list
+        div(ng-view)
