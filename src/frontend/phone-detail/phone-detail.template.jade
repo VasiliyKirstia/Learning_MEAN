@@ -39,9 +39,9 @@ ul.specs
       dt Bluetooth
       dd {{$ctrl.phone.connectivity.bluetooth}}
       dt Infrared
-      dd {{$ctrl.phone.connectivity.infrared}}
+      dd {{$ctrl.phone.connectivity.infrared | checkmark}}
       dt GPS
-      dd {{$ctrl.phone.connectivity.gps}}
+      dd {{$ctrl.phone.connectivity.gps | checkmark}}
   li
     span Android
     dl
@@ -64,7 +64,7 @@ ul.specs
       dt Screen resolution
       dd {{$ctrl.phone.display.screenResolution}}
       dt Touch screen
-      dd {{$ctrl.phone.display.touchScreen}}
+      dd {{$ctrl.phone.display.touchScreen | checkmark}}
   li
     span Hardware
     dl
@@ -75,9 +75,9 @@ ul.specs
       dt Audio / headphone jack
       dd {{$ctrl.phone.hardware.audioJack}}
       dt FM Radio
-      dd {{$ctrl.phone.hardware.fmRadio}}
+      dd {{$ctrl.phone.hardware.fmRadio | checkmark}}
       dt Accelerometer
-      dd {{$ctrl.phone.hardware.accelerometer}}
+      dd {{$ctrl.phone.hardware.accelerometer | checkmark}}
   li
     span Camera
     dl
