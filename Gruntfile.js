@@ -63,6 +63,18 @@ module.exports = function(grunt) {
                 cwd: "src/frontend/",
                 src: "**/*.css",
                 dest: "dist/frontend"
+            },
+            phones: {
+                expand: true,
+                cwd: "src/frontend/phones",
+                src: "**/*.*",
+                dest: "dist/frontend/phones"
+            },
+            images: {
+                expand: true,
+                cwd: "src/frontend/img",
+                src: "**/*.*",
+                dest: "dist/frontend/img"
             }
         },
 
@@ -84,7 +96,7 @@ module.exports = function(grunt) {
     grunt.registerTask('clean-all', "Clean frontend and backend directories.", ['clean:frontend']);
 
     grunt.registerTask('copy-backend', "Copy backend directories.", ['copy:backend']);
-    grunt.registerTask('copy-frontend', "Copy frontend directories.", ['copy:bower_components', 'copy:styles']);
+    grunt.registerTask('copy-frontend', "Copy frontend directories.", ['copy:bower_components', 'copy:styles', 'copy:phones', 'copy:images']);
 
     grunt.registerTask('prepare-frontend', "Compile and minify frontend.", ['jade:compile', 'htmlmin:html', 'uglify:frontend']);
 

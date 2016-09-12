@@ -1,0 +1,90 @@
+img(ng-src="{{$ctrl.phone.images[0]}}" class="phone")
+
+h1 {{$ctrl.phone.name}}
+
+p {{$ctrl.phone.description}}
+
+ul(class="phone-thumbs")
+  li(ng-repeat="img in $ctrl.phone.images")
+    img(ng-src="{{img}}")
+ul.specs
+  li
+    span Availability and Networks
+    dl
+      dt Availability
+      dd(ng-repeat="availability in $ctrl.phone.availability") {{availability}}
+  li
+    span Battery
+    dl
+      dt Type
+      dd {{$ctrl.phone.battery.type}}
+      dt Talk Time
+      dd {{$ctrl.phone.battery.talkTime}}
+      dt Standby time (max)
+      dd {{$ctrl.phone.battery.standbyTime}}
+  li
+    span Storage and Memory
+    dl
+      dt RAM
+      dd {{$ctrl.phone.storage.ram}}
+      dt Internal Storage
+      dd {{$ctrl.phone.storage.flash}}
+  li
+    span Connectivity
+    dl
+      dt Network Support
+      dd {{$ctrl.phone.connectivity.cell}}
+      dt WiFi
+      dd {{$ctrl.phone.connectivity.wifi}}
+      dt Bluetooth
+      dd {{$ctrl.phone.connectivity.bluetooth}}
+      dt Infrared
+      dd {{$ctrl.phone.connectivity.infrared}}
+      dt GPS
+      dd {{$ctrl.phone.connectivity.gps}}
+  li
+    span Android
+    dl
+      dt OS Version
+      dd {{$ctrl.phone.android.os}}
+      dt UI
+      dd {{$ctrl.phone.android.ui}}
+  li
+    span Size and Weight
+    dl
+      dt Dimensions
+      dd(ng-repeat="dim in $ctrl.phone.sizeAndWeight.dimensions") {{dim}}
+      dt Weight
+      dd {{$ctrl.phone.sizeAndWeight.weight}}
+  li
+    span Display
+    dl
+      dt Screen size
+      dd {{$ctrl.phone.display.screenSize}}
+      dt Screen resolution
+      dd {{$ctrl.phone.display.screenResolution}}
+      dt Touch screen
+      dd {{$ctrl.phone.display.touchScreen}}
+  li
+    span Hardware
+    dl
+      dt CPU
+      dd {{$ctrl.phone.hardware.cpu}}
+      dt USB
+      dd {{$ctrl.phone.hardware.usb}}
+      dt Audio / headphone jack
+      dd {{$ctrl.phone.hardware.audioJack}}
+      dt FM Radio
+      dd {{$ctrl.phone.hardware.fmRadio}}
+      dt Accelerometer
+      dd {{$ctrl.phone.hardware.accelerometer}}
+  li
+    span Camera
+    dl
+      dt Primary
+      dd {{$ctrl.phone.camera.primary}}
+      dt Features
+      dd {{$ctrl.phone.camera.features.join(', ')}}
+  li
+    span Additional Features
+    dd {{$ctrl.phone.additionalFeatures}}

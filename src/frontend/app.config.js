@@ -1,15 +1,14 @@
 angular
     .module('phonecatApp')
-    .config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
-            $locationProvider.hashPrefix('!');
+    .config(['$locationProvider', '$routeProvider', phonecatAppConfig]);
 
-            $routeProvider
-                .when('/phones', {
-                    template: '<phone-list></phone-list>'
-                })
-                .when('/phones/:phoneId', {
-                    template: '<phone-detail></phone-detail>'
-                })
-                .otherwise('/phones');
-        }
-    ]);
+function phonecatAppConfig($locationProvider, $routeProvider) {
+    $routeProvider
+        .when('/phones', {
+            template: '<phone-list></phone-list>'
+        })
+        .when('/phones/:phoneId', {
+            template: '<phone-detail></phone-detail>'
+        })
+        .otherwise('/phones');
+}
