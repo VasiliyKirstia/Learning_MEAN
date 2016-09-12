@@ -1,2 +1,4 @@
 angular
-    .module('shared', []);
+    .module('shared', [
+        'shared.phone'
+    ]);

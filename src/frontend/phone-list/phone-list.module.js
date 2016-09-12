@@ -1,1 +1,3 @@
-angular.module('phoneList', []);
+angular.module('phoneList', [
+    'shared.phone'
+]);

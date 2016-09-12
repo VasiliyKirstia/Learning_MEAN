@@ -1,3 +1,5 @@
-angular.module('phoneDetail', [
-    'ngRoute'
-]);
+angular
+    .module('phoneDetail', [
+        'ngRoute',
+        'shared.phone'
+    ]);
