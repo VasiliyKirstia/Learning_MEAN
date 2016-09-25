@@ -1,0 +1,9 @@
+{
+  "mongodb":{
+    "host":"mongodb",
+    "port":"27017",
+    "username":"",
+    "password":"",
+    "database":"learn_mean"
+  }
+}

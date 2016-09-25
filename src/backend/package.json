@@ -4,6 +4,7 @@
   "description": "Node.js on Docker",
   "author": "First Last <first.last@example.com>",
   "dependencies": {
-    "express": "^4.13.3"
+    "express": "^4.13.3",
+    "mongoose": "^4.6.1"
   }
 }

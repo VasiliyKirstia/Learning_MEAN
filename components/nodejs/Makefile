@@ -15,6 +15,9 @@ run:
 		$(IMAGE_NAME) \
 		/bin/bash /srv/node/comands/start.sh
 
+start:
+	docker start $(IMAGE_NAME)
+
 stop:
 	docker stop $(IMAGE_NAME)
 
