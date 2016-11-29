@@ -1,0 +1,51 @@
+@import "variables/colors"
+@import "variables/paths"
+@import "variables/sizes"
+
+//@import "reset"
+
+html, body, header, footer
+  margin: 0cm
+  padding: 0cm
+
+nav
+  margin: 0cm
+  padding: 0cm
+  width: 100%
+  ul
+    list-style: none
+    margin: 0cm
+    padding: 0cm
+    width: 100%
+    background:
+      color: $color-secondaryC2
+
+    li
+      display: inline-block
+      margin: 0cm
+      padding: 0cm
+
+      &:last-child
+        float: right
+
+      a
+        color: $color-secondaryB4
+        font:
+          family: sans-serif
+          size: $large-text
+        display: block
+        margin: 0cm
+        padding: 4mm
+        text-decoration: none
+
+        &:hover
+          background:
+            color: $color-secondaryC0
+
+footer
+  ul
+    list-style: none
+    margin: 0cm
+    padding: 0cm
+
+    li
