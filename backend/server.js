@@ -4,7 +4,7 @@ const express = require('express');
 const ModelsProvider = new (require("./models/ModelsProvider.js"))();
 
 // Constants
-const PORT = 8080;
+const PORT = 8081;
 
 // App
 const app = express();

@@ -1,58 +1,45 @@
 module.exports = function(grunt) {
     grunt.initConfig({
-        jade: {
+        clean: ["dist/"],
+
+        less: {
             compile: {
-                options: {
-                    client: false,
-                    pretty: true
-                },
+                options: {},
                 files: [ {
-                  cwd: "src/frontend",
-                  src: "**/*.jade",
-                  dest: "dist/frontend",
-                  expand: true,
-                  ext: ".html"
+                    cwd: "src/styles",
+                    src: "**/*.less",
+                    dest: "dist/styles",
+                    expand: true,
+                    ext: ".css"
                 } ]
             }
         },
-        htmlmin: {
-            frontend: {
+
+        pug: {
+            compile: {
                 options: {
-                    caseSensitive: true,
-                    collapseWhitespace: true,
-                    collapseInlineTagWhitespace: true,
-                    html5: true,
-                    minifyCSS: true,
-                    minifyJS: true,
-                    minifyURLs: true
+                    data: {
+                        debug: false
+                    }
                 },
-                expand: true,
-                cwd: "dist/frontend",
-                src: "**/*.html",
-                dest: "dist/frontend"
-            }
-        },
-        copy: {
-            backend: {
-                expand: true,
-                cwd: "src/backend",
-                src: "*",
-                dest: "dist/backend"
-            },
-            frontend: {
-                expand: true,
-                cwd: "./",
-                src: "bower_components/**/*",
-                dest: "dist/frontend"
+                files: [ {
+                    cwd: "src/templates",
+                    src: "**/*.pug",
+                    dest: "dist/templates",
+                    expand: true,
+                    ext: ".html"
+                } ]
             }
         }
     });
 
-    grunt.loadNpmTasks('grunt-contrib-jade');
-    grunt.loadNpmTasks('grunt-contrib-htmlmin');
-    grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-less');
+    grunt.loadNpmTasks('grunt-contrib-pug');
 
-    grunt.registerTask('build-backend', "Copy backend source code.", ['copy:backend']);
-    grunt.registerTask('build-frontend', "Prepare frontend source code.", ['jade:compile', 'htmlmin:frontend', 'copy:frontend']);
-    grunt.registerTask('default','Build frontend and backend.', ['build-frontend', 'build-backend']);
+    grunt.registerTask('clean-all', 'Cleaning all distribution directories.', ['clean']);
+    grunt.registerTask('compile-styles', 'Compiling styles.', ['less:compile']);
+    grunt.registerTask('compile-templates', 'Compiling templates.', ['pug:compile']);
+
+    grunt.registerTask('default','Build frontend.', ['clean-all', 'compile-styles', 'compile-templates']);
 };
